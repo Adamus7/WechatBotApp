@@ -9,6 +9,7 @@ using System.Text;
 using System.Xml;
 using WxUtil;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace RayWechatApp.Controllers
 {
@@ -17,9 +18,9 @@ namespace RayWechatApp.Controllers
     public class WxEndpointController : ControllerBase
     {
         private string WxToken;
-        public WxEndpointController()
+        public WxEndpointController(IConfiguration Configuration)
         {
-            WxToken = "Token";
+            WxToken = Configuration["Token"];
         }
 
         [HttpGet("")]
